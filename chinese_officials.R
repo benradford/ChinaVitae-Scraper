@@ -50,7 +50,7 @@ cleanHistory <- function(history.df)
   position <- str_extract(history.df[,2], "^[^,]+")
   location <- str_extract(history.df[,2], "\\s{3}.+$")
   temp <- gsub("  ","~~",history.df[,2])
-  institution <- str_extract(temp, ", [^[~~]+")
+  institution <- str_extract(temp, ", [^[~~]]+")
   institution <- gsub("^, ", "", institution)
   
   return.df <- data.frame(start.date, end.date, position, institution, location)
