@@ -30,6 +30,8 @@ getBio <- function(url)
   tabs <- readHTMLTable(page, header=F)
   history <- tabs[[1]]
   history <- cleanHistory(history)
+  if(nrow(history)<1)
+    history <- cbind(start.date=NA,end.date=NA,position=NA,institution=NA,location=NA)
   
   return.df <- data.frame(chinese.name, english.name, birth.date, birth.place, history)
   return(return.df)
